@@ -6,6 +6,17 @@ import 'package:flutter_demo/bottom/statefuluse.dart';
 import 'package:flutter_demo/containerdemo.dart';
 import 'package:flutter_demo/rudiment.dart';
 import 'package:flutter_demo/bottom/HotShowScreen.dart';
+import 'package:flutter_demo/screens/ImageScreen.dart';
+import 'package:flutter_demo/screens/InputScreen.dart';
+import 'package:flutter_demo/screens/LayoutScreen.dart';
+import 'package:flutter_demo/screens/SelectScreen.dart';
+import 'package:flutter_demo/screens/TextScreen.dart';
+import 'package:flutter_demo/screens/containerwidget/ContainersScreen.dart';
+import 'package:flutter_demo/screens/layoutwidget/FlexExpandScreen.dart';
+import 'package:flutter_demo/screens/layoutwidget/FlowScreen.dart';
+import 'package:flutter_demo/screens/layoutwidget/IndexStackScreen.dart';
+import 'package:flutter_demo/screens/layoutwidget/RowAndColumnScreen.dart';
+import 'package:flutter_demo/screens/layoutwidget/StackScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +32,17 @@ class MyApp extends StatelessWidget {
         '/rudiment': (BuildContext context) => new RudimentScreen(),  // 基本页面
         '/constainer':(BuildContext context)=>new ContainerScreen(),  // Container的使用
         '/stateful':(BuildContext context)=>new StatefulUseScreen(),  // 有状态的组件的使用
+        '/textuse':(BuildContext context)=>new TextScreen(),  // Text的使用
+        '/imageuse':(BuildContext context)=>new ImageScreen(),  // Image的使用
+        '/selectuse':(BuildContext context)=>new SelectScreen(),  // 选择框的使用
+        '/inputuse':(BuildContext context)=>new InputScreen(),  // 输入的使用
+        '/layoutputuse':(BuildContext context)=>new LayoutScreen(),  // Layout Widget的使用
+        '/rowcolumnuse':(BuildContext context)=>new RowAndColumnScreen(),  // Row Column的使用
+        '/flexuse':(BuildContext context)=>new FlexExpandScreen(),  // 弹性布局的使用
+        '/flowuse':(BuildContext context)=>new FlowScreen(),  // 流式布局的使用
+        '/stackuse':(BuildContext context)=>new StackScreen(),  // 层叠布局的使用
+        '/indexstackuse':(BuildContext context)=>new IndexStackScreen(),  // IndexStack布局的使用
+        '/containersuse':(BuildContext context)=>new ContainersScreen(),  // 容器类Widget的使用
       },
       home: MainTab(),
     );
