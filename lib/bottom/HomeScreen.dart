@@ -5,12 +5,43 @@ import 'package:flutter_demo/rudiment.dart';
 ///首页
 
 class HomeScreen extends StatefulWidget {
-
   @override
   HomeState createState() => HomeState();
 }
 
 class HomeState extends State<HomeScreen> {
+  // 滚动监听
+  ScrollController _controller = new ScrollController();
+  bool showToTopBtn = false; // 是否显示返回顶部按钮
+
+  @override
+  void initState() {
+    super.initState();
+    //监听滚动事件，打印滚动位置
+    _controller.addListener(() {
+
+      print(_controller.offset);
+
+      if (_controller.offset < 100 && showToTopBtn) {
+        setState(() {
+          showToTopBtn = false;
+        });
+      } else if (_controller.offset >= 100 && showToTopBtn == false) {
+        setState(() {
+          showToTopBtn = true;
+        });
+      }
+    });
+
+  }
+
+  @override
+  void dispose() {
+    // 为避免内存泄露
+    _controller.dispose();
+    super.dispose();
+  }
+
   // 数据源
   List<String> titleItems = <String>[
     '入门',
@@ -22,7 +53,10 @@ class HomeState extends State<HomeScreen> {
     '选择框的使用',
     '输入',
     'Layout Widgets',
-    'Container Widgets'
+    'Container Widgets',
+    'TabBar',
+    '可滚动组件',
+    '功能性组件',
   ];
   List<String> subTitleItems = <String>[
     'flutter',
@@ -34,7 +68,10 @@ class HomeState extends State<HomeScreen> {
     'select',
     'input',
     'layout',
-    'container'
+    'container',
+    'tabbar',
+    'scroll',
+    'function'
   ];
   List<Icon> iconItems = <Icon>[
     new Icon(Icons.add_call),
@@ -46,7 +83,10 @@ class HomeState extends State<HomeScreen> {
     new Icon(Icons.select_all),
     new Icon(Icons.input),
     new Icon(Icons.layers),
-    new Icon(Icons.import_contacts)
+    new Icon(Icons.import_contacts),
+    new Icon(Icons.tab),
+    new Icon(Icons.grid_on),
+    new Icon(Icons.fullscreen)
   ];
 
   Widget buildListTitle(BuildContext context, String titleItem,
@@ -106,6 +146,15 @@ class HomeState extends State<HomeScreen> {
           case 9:
             Navigator.of(context).pushNamed('/containersuse');
             break;
+          case 10:
+            Navigator.of(context).pushNamed('/tabbaruse');
+            break;
+          case 11:
+            Navigator.of(context).pushNamed('/scrolluse');
+            break;
+          case 12:
+            Navigator.of(context).pushNamed('/functionuse');
+            break;
         }
       },
     );
@@ -128,25 +177,37 @@ class HomeState extends State<HomeScreen> {
           )
         ],
       ),
-      body: new Container(
-          child: new ListView.builder(
-        padding: const EdgeInsets.all(8.0),
-        itemCount: titleItems.length,
-        itemBuilder: (BuildContext context, int index) {
-          return new Container(
-            child: new Column(
-              children: <Widget>[
-                buildListTitle(context, titleItems[index], subTitleItems[index],
-                    iconItems[index], index),
-                new Divider(
-                  height: 0.5,
-                  color: Colors.grey[500],
-                )
-              ],
+      body: new Scrollbar(
+        child: new ListView.builder(
+          padding: const EdgeInsets.all(8.0),
+          controller: _controller,
+          itemCount: titleItems.length,
+          itemBuilder: (BuildContext context, int index) {
+            return new Container(
+              child: new Column(
+                children: <Widget>[
+                  buildListTitle(context, titleItems[index],
+                      subTitleItems[index], iconItems[index], index),
+                  new Divider(
+                    height: 0.5,
+                    color: Colors.grey[500],
+                  )
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+      floatingActionButton: !showToTopBtn
+          ? null
+          : FloatingActionButton(
+              child: Icon(Icons.arrow_upward),
+              onPressed: () {
+                // 返回到顶部时执行的动画
+                _controller.animateTo(.0,
+                    duration: Duration(milliseconds: 200), curve: Curves.ease);
+              },
             ),
-          );
-        },
-      )),
     );
   }
 }

@@ -8,10 +8,10 @@ class ContainersScreen extends StatefulWidget {
 class ContainersState extends State<ContainersScreen> {
   // 数据源
   var titleItems = <String>[
-    'Padding',
+    'Container',
   ];
   var subTitles = <String>[
-    'padding',
+    'container,',
   ];
   var iconItems = <Icon>[
     new Icon(Icons.dialpad),
@@ -31,7 +31,9 @@ class ContainersState extends State<ContainersScreen> {
       trailing: Icon(Icons.arrow_right,color: Colors.green,),
       onTap: (){
         switch(index){
-
+          case 0:
+            Navigator.of(context).pushNamed('/constainer');
+            break;
         }
       },
     );

@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/functionwidget/DialogScreen.dart';
+import 'package:flutter_demo/functionwidget/FutureBuilderScreen.dart';
+import 'package:flutter_demo/functionwidget/StreamBuilderScreen.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_demo/bottom/HomeScreen.dart';
 import 'package:flutter_demo/bottom/MineScreen.dart';
 import 'package:flutter_demo/bottom/RankListScreen.dart';
+import 'package:flutter_demo/functionwidget/FunctionScreen.dart';
+import 'package:flutter_demo/functionwidget/InheritedScreen.dart';
+import 'package:flutter_demo/functionwidget/ProviderScreen.dart';
+import 'package:flutter_demo/functionwidget/WillPopScopeScreen.dart';
+import 'package:flutter_demo/scrollwidget/CustomScrollViewScreen.dart';
+import 'package:flutter_demo/scrollwidget/GridViewScreen.dart';
+import 'package:flutter_demo/scrollwidget/ScrollScreen.dart';
 import 'package:flutter_demo/bottom/statefuluse.dart';
-import 'package:flutter_demo/containerdemo.dart';
+import 'package:flutter_demo/screens/TabBarScreen.dart';
+import 'package:flutter_demo/screens/containerwidget/containerdemo.dart';
 import 'package:flutter_demo/rudiment.dart';
 import 'package:flutter_demo/bottom/HotShowScreen.dart';
 import 'package:flutter_demo/screens/ImageScreen.dart';
@@ -17,8 +29,12 @@ import 'package:flutter_demo/screens/layoutwidget/FlowScreen.dart';
 import 'package:flutter_demo/screens/layoutwidget/IndexStackScreen.dart';
 import 'package:flutter_demo/screens/layoutwidget/RowAndColumnScreen.dart';
 import 'package:flutter_demo/screens/layoutwidget/StackScreen.dart';
+import 'package:flutter_demo/scrollwidget/SingleChildScrollViewScreen.dart';
+import 'package:flutter_demo/functionwidget/DataInfo.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+  ChangeNotifierProvider(builder: (context)=>DataInfo(),child: MyApp(),)
+);
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -43,6 +59,18 @@ class MyApp extends StatelessWidget {
         '/stackuse':(BuildContext context)=>new StackScreen(),  // 层叠布局的使用
         '/indexstackuse':(BuildContext context)=>new IndexStackScreen(),  // IndexStack布局的使用
         '/containersuse':(BuildContext context)=>new ContainersScreen(),  // 容器类Widget的使用
+        '/tabbaruse':(BuildContext context)=>new TabBarScreen(),  // TabBar的使用
+        '/scrolluse':(BuildContext context)=>new ScrollScreen(),  // 可滚动组件的使用
+        '/singlechildscrolluse':(BuildContext context)=>new SingleChildScrollViewScreen(),  // SingleChildScrollView的使用
+        '/gridviewuse':(BuildContext context)=>new GridViewScreen(),  // GridView的使用
+        '/customscrollviewuse':(BuildContext context)=>new CustomScrollViewScreen(),  // CustomScrollView的使用
+        '/functionuse':(BuildContext context)=>new FunctionScreen(),  // 功能型的使用
+        '/willpopscopeuse':(BuildContext context)=>new WillPopScopeScreen(),  // WillPopScope的使用
+        '/inherited':(BuildContext context)=>new InheritedScreen(),  // Inherited的使用
+        '/provider':(BuildContext context)=>new ProviderScreen(),  // Provider的使用
+        '/FutureBuilder':(BuildContext context)=>new FutureBuilderScreen(),  // FutureBuilder的使用
+        '/StreamBuilder':(BuildContext context)=>new StreamBuilderScreen(),  // StreamBuilder的使用
+        '/Dialog':(BuildContext context)=>new DialogScreen(),  // Dialog的使用
       },
       home: MainTab(),
     );

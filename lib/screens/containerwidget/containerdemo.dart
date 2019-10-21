@@ -33,6 +33,31 @@ class ContainerScreen extends StatelessWidget {
             ),
             transform: new Matrix4.rotationZ(0.3),
           ),
+          Container(
+            margin: EdgeInsets.only(top: 50.0, left: 120.0), // 容器外补白
+            constraints: BoxConstraints.tightFor(width: 200.0,height: 150.0), // 卡片大小
+            decoration: BoxDecoration(
+              // 背景装饰
+              gradient: RadialGradient(
+                  colors: [Colors.red, Colors.orange],
+                  center: Alignment.topLeft,
+                  radius: .98,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black54,
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 4.0
+                ),
+              ]
+            ),
+            transform: Matrix4.rotationZ(.2),       // 卡片倾斜变换
+            alignment: Alignment.center,
+            child: Text(
+              '520',
+              style: TextStyle(color: Colors.white,fontSize: 40.0),
+            ),
+          ),
         ],
       ),
     );
