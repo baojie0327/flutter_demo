@@ -32,6 +32,9 @@ import 'package:flutter_demo/screens/layoutwidget/StackScreen.dart';
 import 'package:flutter_demo/scrollwidget/SingleChildScrollViewScreen.dart';
 import 'package:flutter_demo/functionwidget/DataInfo.dart';
 
+import 'filenetwork/FileNetWorkScreen.dart';
+import 'filenetwork/FileOperationScreen.dart';
+
 void main() => runApp(
   ChangeNotifierProvider(builder: (context)=>DataInfo(),child: MyApp(),)
 );
@@ -71,6 +74,8 @@ class MyApp extends StatelessWidget {
         '/FutureBuilder':(BuildContext context)=>new FutureBuilderScreen(),  // FutureBuilder的使用
         '/StreamBuilder':(BuildContext context)=>new StreamBuilderScreen(),  // StreamBuilder的使用
         '/Dialog':(BuildContext context)=>new DialogScreen(),  // Dialog的使用
+        '/FileNetWorkScreen':(BuildContext context)=>new FileNetWorkScreen(),  // 文件和网络的使用
+        '/fileoperation':(BuildContext context)=>new FileOperationScreen(),  // 文件的使用
       },
       home: MainTab(),
     );

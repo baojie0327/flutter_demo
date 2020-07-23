@@ -57,6 +57,7 @@ class HomeState extends State<HomeScreen> {
     'TabBar',
     '可滚动组件',
     '功能性组件',
+    '文件和网络操作'
   ];
   List<String> subTitleItems = <String>[
     'flutter',
@@ -71,7 +72,8 @@ class HomeState extends State<HomeScreen> {
     'container',
     'tabbar',
     'scroll',
-    'function'
+    'function',
+    'filenet'
   ];
   List<Icon> iconItems = <Icon>[
     new Icon(Icons.add_call),
@@ -86,7 +88,8 @@ class HomeState extends State<HomeScreen> {
     new Icon(Icons.import_contacts),
     new Icon(Icons.tab),
     new Icon(Icons.grid_on),
-    new Icon(Icons.fullscreen)
+    new Icon(Icons.fullscreen),
+    new Icon(Icons.network_wifi)
   ];
 
   Widget buildListTitle(BuildContext context, String titleItem,
@@ -154,6 +157,9 @@ class HomeState extends State<HomeScreen> {
             break;
           case 12:
             Navigator.of(context).pushNamed('/functionuse');
+            break;
+          case 13:
+            Navigator.of(context).pushNamed('/FileNetWorkScreen');
             break;
         }
       },
