@@ -1,5 +1,5 @@
 // Dart是一种面向对象的语言，所有能够使用变量引用的都是对象
-// 任何保存在变量中的都是一个对象，无论是数字，函数，null都是对象
+// 任何保存在变量中的都是一个对象，无论是数字，函数，null都是对象，所有对象继承自Object类
 
 void main() {
   print('Hello World!');
@@ -9,7 +9,7 @@ void main() {
   // 变量的定义
   // 创建一个变量并进行初始化
   var str1 = 'ok'; // 可以用 var 声明变量
-  // 变量仅存储对象的引用，这里的变量str1存储了一个String类型的对象引用。
+  // 变量仅存储对象的引用，这里的变量str1存储了一个String类型的对象引用。'ok'是这个String类型对象的值
 
   String str2 = 'no'; // 也可以显式声明变量
 
@@ -19,7 +19,7 @@ void main() {
   str3 = 53;
   print(str3);
 
-  // 没有初始化的变量，默认为null
+  // 没有初始化的变量，默认为null。即使变量是数字类型，默认值也是null
   int defult;
   print(defult); // 输出null
 
@@ -32,6 +32,13 @@ void main() {
   final String teacher = 'Li';
   // const编译时的常量，const一经声明就不能再次赋值
   const String stu = 'sui';
+
+  // 内建类型
+  // Number String Boolean List (也被称为 Array) Map Set Rune (用于在字符串中表示 Unicode 字符)  Symbol
+
+
+
+
 
   // 函数
   String sayHello(String name) {
