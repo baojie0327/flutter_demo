@@ -48,6 +48,9 @@ void main() {
   var wow = 1; // int
   var wov = 1.1; // double
 
+  /**
+   * *************************************************   函数     *****************************************************
+   */
   // 函数
   String sayHello(String name) {
     return 'Hello $name';
@@ -85,4 +88,9 @@ void main() {
   }
 
   funy(1, 3, 5);
+
+
+
+
+
 }
