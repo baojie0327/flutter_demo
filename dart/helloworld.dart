@@ -10,7 +10,6 @@ void main() {
    * **********************************        变量   ****************************************
    */
 
-
   // 变量的定义
   // 创建一个变量并进行初始化
   var str1 = 'ok'; // 可以用 var 声明变量
@@ -38,12 +37,16 @@ void main() {
   // const编译时的常量，const一经声明就不能再次赋值
   const String stu = 'sui';
 
-  // 内建类型
+  /**
+   * ***************************************    内建类型   ******************************
+   */
+
   // Number String Boolean List (也被称为 Array) Map Set Rune (用于在字符串中表示 Unicode 字符)  Symbol
 
+  // Number
 
-
-
+  var wow = 1; // int
+  var wov = 1.1; // double
 
   // 函数
   String sayHello(String name) {
@@ -67,7 +70,7 @@ void main() {
   // 大括号外是必填参数
   // 大括号内可以指定0个或多个参数，默认值用=
   // 与顺序无关，在调用的时候需要指定参数名
-  void funx(int a, {int b, int c= 3, int d= 4, int e}) {
+  void funx(int a, {int b, int c = 3, int d = 4, int e}) {
     print('$a $b $c $d $e');
   }
 
@@ -77,14 +80,9 @@ void main() {
   // 使用方括号[]，默认值用=
   // 方括号内的参数可以指定0或者多个
   // 在调用的时候参数会依次按顺序赋值
-  void funy(int a,[int b,int c=3,int d=4,int e]){
+  void funy(int a, [int b, int c = 3, int d = 4, int e]) {
     print('$a $b $c $d $e');
   }
 
-  funy(1,3,5);
-
-
-
-
-
+  funy(1, 3, 5);
 }
